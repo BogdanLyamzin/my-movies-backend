@@ -1,3 +1,3 @@
-export interface c extends Error {
+export interface ResponseError extends Error {
   status: number;
 }
