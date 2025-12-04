@@ -26,11 +26,9 @@ const userSchema = new Schema<UserDocument>({
     },
     accessToken: {
         type: String,
-        required: true,
     },
     refreshToken: {
         type: String,
-        required: true,
     }
 }, {versionKey: false, timestamps: true});
 

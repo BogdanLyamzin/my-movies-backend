@@ -1,4 +1,4 @@
-import { Document, CallbackError } from "mongoose";
+import { Document, CallbackError, Query } from "mongoose";
 
 type MongooseErrorWithStatus = CallbackError & { status?: number };
 
@@ -18,8 +18,6 @@ export const handleSaveError = (
   next();
 };
 
-export const setUpdateSettings = function (next: MongooseNext) {
-  this.options.new = true;
-  this.options.runValidators = true;
-  next();
+export const setUpdateSettings = function (this: Query<unknown, unknown>) {
+  this.setOptions({ new: true, runValidators: true });
 };
